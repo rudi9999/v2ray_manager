@@ -628,7 +628,7 @@ install(){
 	echo $barra
 	echo " enter para continuar..."
 	read foo
-	#source <(curl -sL https://multi.netlify.app/v2ray.sh)
+	source <(curl -sL https://multi.netlify.app/v2ray.sh)
 	echo $barra
 	echo " instalcion finalizada"
 	echo " Por favor verifique el log"
