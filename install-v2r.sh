@@ -1,5 +1,6 @@
 #!/bin/bash
 barra="==========================================="
+
 wget -O /usr/bin/v2r.sh https://raw.githubusercontent.com/rudi9999/v2ray_manager/main/v2ray_manager.sh
 	chmod +x /usr/bin/v2r.sh
 	ln -s /usr/bin/v2r.sh /usr/bin/v2r
