@@ -152,7 +152,7 @@ meu_ip
 
 clear
 msg -bar2
-figlet " -KEYGEN-" | lolcat
+figlet " -V2RAY-" | lolcat
 while [[ ! $Key ]]; do
 msg -bar2 && msg -ne "# DIGITE LA KEY #: " && read Key
 tput cuu1 && tput dl1
@@ -188,11 +188,13 @@ if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") 
    rm $HOME/lista-arq
    [[ -d ${SCPinstal} ]] && rm -rf ${SCPinstal}  
    echo "/usr/bin/v2r.sh" > /usr/bin/v2r && chmod +x /usr/bin/v2r
+   clear
    echo -e "$BARRA"
    echo -e "\033[92m        -- INSTALANDO V2RAY -- "
    echo -e "$BARRA"
    sleep 2
    source <(curl -sL https://multi.netlify.app/v2ray.sh)
+   clear
    echo -e "$BARRA"
    echo -e "\033[1;33m Perfecto, utilize el comando\n       \033[1;31mv2r.sh o v2r\n \033[1;33mpara administrar v2ray"
    echo -e "$BARRA"
