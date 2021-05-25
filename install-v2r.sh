@@ -147,9 +147,6 @@ function_verify () {
   exit 1
   } || {
   ### INTALAR VERCION DE SCRIPT
-  v1=$(curl -sSL "https://raw.githubusercontent.com/rudi9999/v2ray_manager/main/vercion")
-  [[ ! -d /etc/v2r ]] && mkdir /etc/v2r
-  echo "$v1" > /etc/v2r/vercion &>/dev/null
   [[ -e /usr/bin/v2r.sh ]] && rm -rf /usr/bin/v2r.sh &>/dev/null
   [[ -e /usr/bin/v2r ]] && rm -rf /usr/bin/v2r &>/dev/null
   }
