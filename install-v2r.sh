@@ -38,7 +38,7 @@ echo -e "\033[97m  # apt-get install npm.................. $ESTATUS "
 [[ $(dpkg --get-selections|grep -w "nodejs"|head -1) ]] || apt-get install nodejs -y &>/dev/null
 [[ $(dpkg --get-selections|grep -w "nodejs"|head -1) ]] || ESTATUS=`echo -e "\033[91mFALLO DE INSTALACION"` &>/dev/null
 [[ $(dpkg --get-selections|grep -w "nodejs"|head -1) ]] && ESTATUS=`echo -e "\033[92mINSTALADO"` &>/dev/null
-echo -e "\033[97m  # apt-get install nodejs............... $ESTATUS "
+echo -e "\033[97m  # apt-get install nodejs................ $ESTATUS "
 #socat
 [[ $(dpkg --get-selections|grep -w "socat"|head -1) ]] || apt-get install socat -y &>/dev/null
 [[ $(dpkg --get-selections|grep -w "socat"|head -1) ]] || ESTATUS=`echo -e "\033[91mFALLO DE INSTALACION"` &>/dev/null
@@ -183,7 +183,6 @@ wget -O $HOME/lista-arq $(ofus "$Key")/$IP > /dev/null 2>&1 && echo -e "\033[1;3
 IP=$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}') && echo "$IP" > /usr/bin/vendor_code
 sleep 1s
 function_verify
-updatedb
 if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") ]]; then
    msg -bar2
    msg -e "\033[1;33mDescargando archivos... \033[1;31m[Proyect by @Rufu99]"
@@ -202,7 +201,10 @@ if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") 
    sleep 1s
    rm -rf FERRAMENTA KEY KEY! INVALIDA!
    rm $HOME/lista-arq
-   [[ -d ${SCPinstal} ]] && rm -rf ${SCPinstal}  
+   [[ -d ${SCPinstal} ]] && rm -rf ${SCPinstal}
+   [[ ! -d /etc/v2r ]] && mkdir /etc/v2r
+   ver=$(curl -sSL "https://raw.githubusercontent.com/rudi9999/v2ray_manager/main/vercion")
+   echo "$ver" > /etc/v2r/vercion &>/dev/null
    echo "/usr/bin/v2r.sh" > /usr/bin/v2r && chmod +x /usr/bin/v2r
    clear
    echo -e "$BARRA"
