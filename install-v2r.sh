@@ -147,6 +147,9 @@ function_verify () {
   exit 1
   } || {
   ### INTALAR VERCION DE SCRIPT
+  [[ ! -d /etc/v2r ]] && mkdir /etc/v2r
+  ver=$(curl -sSL "https://raw.githubusercontent.com/rudi9999/v2ray_manager/main/vercion")
+  echo "$ver" > /etc/v2r/vercion
   [[ -e /usr/bin/v2r.sh ]] && rm -rf /usr/bin/v2r.sh &>/dev/null
   [[ -e /usr/bin/v2r ]] && rm -rf /usr/bin/v2r &>/dev/null
   }
@@ -202,9 +205,6 @@ if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") 
    rm -rf FERRAMENTA KEY KEY! INVALIDA!
    rm $HOME/lista-arq
    [[ -d ${SCPinstal} ]] && rm -rf ${SCPinstal}
-   [[ ! -d /etc/v2r ]] && mkdir /etc/v2r
-   ver=$(curl -sSL "https://raw.githubusercontent.com/rudi9999/v2ray_manager/main/vercion")
-   echo "$ver" > /etc/v2r/vercion &>/dev/null
    echo "/usr/bin/v2r.sh" > /usr/bin/v2r && chmod +x /usr/bin/v2r
    clear
    echo -e "$BARRA"
